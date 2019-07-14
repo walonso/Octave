@@ -1,0 +1,127 @@
+ how to move data around in Octave. So, if you have data for a machine learning problem, how do you load that data in Octave? How do you put it into matrix? How do you manipulate these matrices? How do you save the results? How do you move data around and operate with data? 
+ 
+ ---- tamaño de una matriz ---------
+ >> A = [1 2; 3 4; 5 6]
+ >> size(A)
+ 3 2  % (3 filas 2 columnas)
+ 
+ >> SZ = size(A)
+ 3 2
+ 
+ >> size(SZ)
+ 1 2 % 1 fila y 2 columnas el cual es el resultado de size(A) una fila y 2 columnas.
+ 
+ >> size(A,1)
+ 3 % da el resultado de la primer dimension.
+ 
+ >> siza(A,2)
+ 2 % el resultado de la 2da dimension
+ 
+ ---- tamaño de un vector -----
+ >> v = [1 2 3 4]
+ >> length(v) 
+ 4 % son 4 los elementos del vector v (length muestra la dimension con valor mas alta)
+ 
+ >> length(A) % length de la matriz de arriba
+ 3 % es la dimension con valor mas alta
+ 
+ >> length([1; 2; 3; 4; 5])
+5 % 5 elementos
+
+ ---- comandos ----
+ >> pwd % muestra la ruta donde esta octave instalado.
+ 
+ >> cd C:\....  % para moverse a otro folder
+ 
+ >> ls  % listar directorios y archivos
+ 
+ >> who % muestra las variables en el scope actual (A, v,...)
+ 
+ >>whos % muestra mas detalle, el size (si es matriz, vector o cualquier otro valor, un entero sera 1 1), Bytes y class (tipo de objeto)
+ 
+ ---- Carga de data usando archivos ------------------------
+ %%% se tienen 2 archivos adjuntos a este documento "FeaturesX.dat" y "priceY.dat"
+ 
+ >> load FeaturesX.dat
+ >> load priceY.dat
+ >> load('FeaturesX.dat')  %tambn para carga archivo
+ >> who % estos archivos cargan la data como variables, que se llamaran igual como el archivo sin extension
+ >> FeaturesX  
+ FeaturesX =
+ 2300 2
+ ....
+ ...
+ >>size(FeaturesX)
+ 47 2 % las dimensiones de ese archivo cargado
+ 
+ >>size(priceY)
+ 47 1 
+ 
+ >> clear FeaturesX % elimina la variable
+ 
+ >> v = priceY(1:10)  % crea un vector v que tenga los primeros 10 elementos de priceY
+ 
+ >>save hello.mat v;  %lo que este en variable v, lo guardara en el archivo hello.mat
+ 
+ >> clear % limpia todas las variables
+ 
+ >>save hello.txt v -ascii %guarda como texto (ASCII)
+ 
+ --------- Manipular data -------------------------------------
+ >> A(3,2)  % crea una matriz de 3 X 2.. y la llena con valores de 1 a 6.
+ >> A(2,:)  % de A toma lo que esta en la segunda fila (todas las columnas de esa fila):
+ 3 4
+ >> A(:,2)  % toma todo lo que este en la segunda columna
+ 2
+ 4
+ 6
+ >> A([1 3],:)  % todos los elementos de A que sus indices sean 1 0 3, es decir filas 1 y 3.
+ 1 2
+ 5 6
+ 
+ >> A(:,2) = [10; 11; 12]  % de todas las filas en A (3 filas en total) reemplace la 2da columna con los valores 10,11 y 12.
+ 1 10
+ 3 11
+ 5 12
+ 
+>> A = [A, [100; 101; 102]];  %  agrega otra columna a la derecha
+1 10 100
+3 11 101
+5 12 102
+
+>> A(:) % pone todos los elementos de A en un solo vector
+1
+3
+5
+10
+...
+102
+
+>> A = [1 2; 3 4; 5 6];
+1 2
+3 4
+5 6
+>> B = [11 12; 13 14; 15 16]
+11 12
+13 14
+15 16
+>> C = [A B]  % o [A, B] crea una nueva matriz uniendo las 2 matrices, A a la izquierda y B a la derecha
+1 2 11 12
+3 4 13 14
+5 6 15 16
+
+>> C = [A; B] % con el punto y coma significa que lo agregue hacia abajo
+1  2
+3  4
+5  6
+11 12
+13 14
+15 16
+
+>>size(6)
+6 2
+
+>> 
+ 
+ 
+ 

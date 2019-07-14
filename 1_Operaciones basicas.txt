@@ -1,0 +1,108 @@
+-- Octave
+
+% es el caracter que se usa para comentarios
+
+--1. Basic operations
+5+11
+3-2
+5*8
+1/2
+2^6
+
+--2. logical operations, (los booleanos muestran 0 o 1)  (% es donde inicia un comentario)
+2 == 1 % false   Resultado: 0 (2 es igual a 1?)
+1 ~= 2           Resultado: 1 (1 es diferente de 2?)
+1 && 0 % && = AND   Resulrado: 0
+1 || 0 % || = OR    Resultado: 1
+xor(1,0)  % resultado = 1 (xor marca 0 cuando son el mismo valor en amos lados, de lo contrario 1)
+
+-- 3. Cambiar el prompt:
+-- en octave por defecto cada linea ejecutada genera una version en el prompt, para cambiarlo a otro, por ejemplo >>:
+PS1('>> '):
+
+-- 4. Asignar variables:
+a = 3
+a = 3; % el punto y coma no imprime salida en el prompt
+b = 'hi';
+c = (3>=1); %a llamar c, muestra "c = 1". (true)
+disp(a); % muestra el valor.
+a = pi; %guarda PI en a
+disp(sprintf('2 decimals: %0.2f', a))  % muestra 2 decimals: 3.14
+
+
+-- 5. format: especifica por defecto que tanta informacion mostrar
+format long % para que los numeros muestren todos los decimales, ejemplo PI = 3.14.159265358979
+format short % para mostrar numeros cortos, ejemplo PI = 3.14.16
+
+-- 6. Vectores y matrices:
+>> A = [1 2; 3 4; 5 6]
+muestra: 
+1 2
+3 4
+5 6
+
+>> v = [1 2 3]
+muestra:
+1 2 3
+
+>> v = [1; 2; 3]
+muestra:
+1
+2
+3
+
+>> v = 1:0.1:2  % toma los valores que comienzan en 1 y los incrementa en 0.1 hasta llegar a 2
+muestra: (1 por 11 matriz)
+1.0000 1.1000 1.2000 1.3000 1.4000 1.5000 .... 1.9000 2.0000
+
+>> v = 1:6
+muestra:
+1 2 3 4 5 6
+
+
+>> ones(2,3)
+muestra:
+1 1 1
+1 1 1
+
+>> c = 2*ones(2,3)  % q es lo mismo a [2 2 2; 2 2 2]
+muestra:
+2 2 2
+2 2 2
+
+
+>> w = ones(1,3)
+1 1 1
+
+>> w = zeros(1,3)
+0 0 0
+
+>> w = rand(1,3)  % rand es para obtener valores random de 0 a 1
+0.91477 0.14359 0.84860
+
+>> w = randn(1,3)  %  from a Gaussian distribution with mean zero and variance or standard deviation equal to one.
+-0.33517 1.26847 -0.28211
+
+>> w = -6 + sqrt(10)*(randn(1, 10000)); % puede hacer operaciones grandes (10000 resultados habran)
+
+-- 7. Graficas
+>> hist(w)  % muestra el histograma de w : There was minus 6 plus zero ten times this Gaussian random variable.
+>> hist(w,50) % el 50 es la cantidad de barras, como la vamos a partir
+% histogram of a Gaussian with mean minus 6. Because I have a minus 6 there plus square root 10 times this. So the variance of this Gaussian random variable is 10 on the standard deviation is square root of 10, 
+
+-- 8 matriz identidad (eye)
+>> eye(4)
+muestra:
+1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1
+
+-- 9. Help
+>> help [Comando] % ejemplo: help rand
+
+
+
+
+
+
