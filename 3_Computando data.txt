@@ -1,0 +1,142 @@
+>> A = [1 2; 3 4; 5 6]
+1 2
+3 4
+5 6
+
+>> B = [11 12; 13 14; 15 16]
+11 12
+13 14
+15 16
+
+>> C = [1 1; 2 2]
+1 1
+2 2
+
+>> A*C  (multiplicacion normal de matricez (3 * 2 matriz)
+5  5
+11 11
+17 17
+
+>> A.*B  (el punto, hace que se manejen las operaciones valor a valor segun su posicion)
+-> hace que se multiplique valor a valor por posicion,
+1 2		11 12	11 24
+3 4  *  13 14 = 39 56
+5 6		15 16	75 96
+
+>> A.^2
+1  4
+9  16
+25 36
+
+>> V = [1; 2; 3]
+1
+2
+3
+
+>> 1./V  (como lleva el punto, dice 1 / a todos los valores del vector)
+1.00000
+0.50000
+0.33333
+
+% el logaritmo, exponencial tambien son "element-wise" operations (son aplicadas valor a valor)
+>> log(V)
+>> exp(V)
+>> abs(V)
+>> abs([-1; 2; -3])
+>> -V % -1*V
+v + ones(length(V),1)  % al vector v le suma otro vector de unos. (se le dijo ones(3,1), cree un vector de unos de 3 * 1 de dimension)
+
+
+% traspuesta (')
+>> A'
+1 3 5
+2 4 6
+
+>> a = [1 15 2 0.5]
+>> val = max(a)  % 15
+>> [val, ind] = max(a)
+val = 15
+ind = 2
+
+>> max(A)
+5 6
+
+(1 2
+3 4
+5 6)
+
+>> a < 3  % (compara elemento a elemento y lo representa en 1 o 0 (true or false)
+1 0 1 1
+
+>> find(a<3)  % devuelve el indice donde se cumple, empieza en 1
+1 3 4
+
+>> A = magic(3)  % retorna "magic square" todas sus filas y columnas y diagonales suman lo mismo
+% aca generamos una matriz de 3´por 3.
+8 1 6
+3 5 7
+4 9 2
+
+>> [r,c] = find(A>=7)
+% encnetra los elementos de A que son mas grandes o iguales a 7. r, c representan fila y columna
+r= 1 3 2
+c = 1 2 3
+
+>> a
+1 15 2 0.5
+>> sum(a)
+18500
+>> prod(a) % el producto = 15
+>> floor(a) % el menor entero de cada uno
+1 15 2 0
+>> ceil(a)
+1 15 2 1
+>> rand(3) % crea una mayriz de tres por tres con valor randomico
+>> max(rand(3), rand(3)) % va a tomar los valores mas grandes del random y a la final una mariz de 3 * 3
+>> max(A,[],1)
+% dice q tome A, [] tome el valor de la columna, 1 tome la primera dimension (la columna), y como todo esta con max(),
+lo que dice es: tome el maximo de cada columna 
+=
+8 9 7  (8 el max de la primera columna, 9 de la segunda...)
+
+>> max(A, [], 2) = el 2 que fue lo que cambio.. dice q valide por fila
+8
+7
+9
+>>max(A)
+8 9 7
+
+>> max(max(A))  % el maximo de A
+9
+
+>> A(:) % para volverlo vector
+>> max(A(:))
+
+>> A = magic(9)
+>> sum(A,1) -> hace las sumas de las columnas
+369 369 369 ....
+>> sum(A,2) -> hace las sumas de filas
+369
+369
+..
+
+>> eye(9) % crea la identidad (todo 0, menos la diagonal que la llena de 1)
+>> A.^eye(9)
+% como es una identidad, todo sera 0, menos la diagnoal
+
+>> sum(sum(A.*eye(9)))
+369 % la suma de la diagonal
+
+>> sum(sum(A.*flipud(eye(9)))) % flipud voltea la matriz vertical, en este caso, colocara la diagonal al contario.
+369 % porque es la suma de la diagonal)
+
+>> A = magic(3)
+>> pinv(A)  % la inversa de A
+
+
+
+
+
+
+
+
