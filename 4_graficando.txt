@@ -1,0 +1,30 @@
+>> t=[0:0.01:0.98]; %array random 0 a 0.98
+>> y1 = sin(2*pi*4*t);
+>> plot(t,y1);% muestra la grafica, x es T, y es y1
+>> y2 = cos(2*pi*4*t);
+>> plot(t,y2);  % grafica la grafica de coseno y2.
+
+% si se quisieran ver las dos graficas (una superpuesta de la otra)
+>> plot(t,y1)
+>> hold on;
+>> plot(t,y2,'r'); % r de red, para que muestre la grafica roja
+
+>> xlabel('time') % label a x
+>> ylabel('value')
+>> legend('sin','cos')  % lo que significa cada color 
+>> title('my plot')
+
+>> cd C:/ ; print -dpng 'myplot.png'  % guardar la imagen de la imagen ue se creo.
+>> close % para cerrar la grafica.
+
+>> help plot
+
+>> figure(1); plot(t,y1)
+>> figure(2); plot(t,y2)
+>> subplot(1,2,1); % Divides plot a 1X2 grid, access the first element (first element es el ultimo valor, el 1)
+>> axis([0.5 1 -1 1])  % (0.5 y 1, son el rango del eje x, -1 y 1 son el eje y)
+
+>> A = magic(5)
+>> imagesc(A)  % crea un grid de 5 X 5 de colores (literalmente quedan los colores, y cada color representa el valor en la matriz A)
+>> imagesc(A), colorbar, colormap gray  % coloca color gris, colorbar al lado muestra una regla de 0 a x valores.
+

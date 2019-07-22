@@ -1,0 +1,100 @@
+>> v = zeros(10,1) % crea un vector de 0.. (10 elementos)
+
+>> for i=1:10,
+	v(i) = 2^i;
+   end;
+   
+>> v  % muestra la operacion anterior
+
+>> indices=1:10;
+>> indices % creo los elementos de 1 a 10
+
+>> for i=indices,
+	disp(i);
+   end;
+
+% lo anterior muestra los valores.
+
+>> i = 1;
+>> while i<= 5,
+	v(i) = 100;
+	i = i+1;
+   end;
+
+% usar break para salirse del ciclo   
+>> i =1;
+>> while true,
+	v(i) = 999;
+	i = i+1;
+	if i == 6,
+		break;
+	end;
+   end;
+   
+ >> v(1)
+ >> v(1) = 2;
+ >> if v(1) == 1,
+		disp('The value is one');
+	elseif v(1) == 2,
+		disp('The value is two');
+	else
+		disp('The value is not one or two.');
+	end;
+
+>> exit 
+>> quit
+
+
+----- funciones ----
+% asi se define la funcion:
+>> function y = squareThisNumber(x)
+	y = x^2;
+
+% asi se ejecuta la funcion:
+>> squareThisNumber(5)
+
+% para agregar la funcion y sea accesible desde cualquier lugar.
+>> addpath('c:\user.....')
+
+% funcion que retorna multiples valores
+>> function [y1, y2] = squareAndCubeThisNumber(x)
+	y1 = x^2;
+	y2 = x^3;
+	
+>> [a,b] = squareAndCubeThisNumber(5);
+a = 25
+b = 125
+
+----
+% definiendo la funcion J (funcion de costo)
+>> function J = costFunctionJ(x, y, theta)
+	% x is the "design matrix" containing our trainning examples.
+	% y is the class labels
+
+	m = size(x, 1);  % number trainning examples
+	predictions = x*theta; % predictions of hypothesis on all m examples
+	sqrErrors = (predictions-y).^2; %squared errors
+
+	J = 1 / (2*m) * sum(sqrErrors);
+
+>> x = [1 1; 1 2; 1 3]
+X =
+1 1
+1 2
+1 3
+
+>> y = [1; 2; 3]
+
+>> theta = [0;1];
+>> j = costFunctionJ(x,y,theta)
+j = 0
+
+>> theta = [0;0];
+>> j = costFunctionJ(X, y , theta)
+j = 2.3333
+
+
+
+
+
+
